@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddButtonCell" rowHeight="100" id="G9v-fA-0RE" customClass="AddButtonCell" customModule="CaliPro" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G9v-fA-0RE" id="zgl-ip-fdH">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JJ-fc-To2">
+                        <rect key="frame" x="192" y="31" width="30" height="30"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="jHx-kv-W83"/>
+                            <constraint firstAttribute="width" constant="30" id="v5z-TA-eg5"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCj-jk-PbG">
+                        <rect key="frame" x="172" y="11" width="70" height="70"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="vEm-au-f14"/>
+                            <constraint firstAttribute="width" constant="70" id="wuC-Sy-tSv"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                        <color key="tintColor" red="0.14117647059999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" image="plus.circle.fill" catalog="system">
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0JJ-fc-To2" firstAttribute="centerX" secondItem="zgl-ip-fdH" secondAttribute="centerX" id="0xU-hV-Aw4"/>
+                    <constraint firstItem="0JJ-fc-To2" firstAttribute="centerY" secondItem="zgl-ip-fdH" secondAttribute="centerY" id="124-pC-85X"/>
+                    <constraint firstItem="tCj-jk-PbG" firstAttribute="centerY" secondItem="zgl-ip-fdH" secondAttribute="centerY" id="FHD-gS-rCv"/>
+                    <constraint firstItem="tCj-jk-PbG" firstAttribute="centerX" secondItem="zgl-ip-fdH" secondAttribute="centerX" id="wFD-xN-NK2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="addButton" destination="tCj-jk-PbG" id="pZY-Yo-9hV"/>
+            </connections>
+            <point key="canvasLocation" x="79.710144927536234" y="29.464285714285712"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
+</document>
