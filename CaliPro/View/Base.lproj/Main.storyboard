@@ -130,12 +130,14 @@
         <!--Dashboard Nav-->
         <scene sceneID="GIw-GN-lCH">
             <objects>
-                <navigationController title="Dashboard Nav" id="Wny-68-sxu" sceneMemberID="viewController">
+                <navigationController title="Dashboard Nav" extendedLayoutIncludesOpaqueBars="YES" id="Wny-68-sxu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="square.stack.3d.up.fill" catalog="system" id="Z9p-tq-DBB"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Z5B-9e-O2n">
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="Z5B-9e-O2n">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="BGColor"/>
+                        <color key="tintColor" name="BGColor"/>
+                        <color key="barTintColor" name="BGColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -143,6 +145,9 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DsL-rq-2gy">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="vCh-wM-Wl6" kind="relationship" relationship="rootViewController" id="GqM-jA-Jsv"/>
                     </connections>
@@ -154,12 +159,12 @@
         <!--DashboardVC-->
         <scene sceneID="et6-l7-hvA">
             <objects>
-                <viewController id="vCh-wM-Wl6" customClass="DashboardVC" customModule="CaliPro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="vCh-wM-Wl6" customClass="DashboardVC" customModule="CaliPro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H0y-8A-p6Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cd9-Em-ZYn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="cd9-Em-ZYn">
                                 <rect key="frame" x="0.0" y="91" width="320" height="428"/>
                                 <color key="backgroundColor" name="BGColor"/>
                                 <color key="tintColor" name="BGColor"/>
@@ -168,10 +173,10 @@
                         </subviews>
                         <color key="backgroundColor" name="BGColor"/>
                         <constraints>
-                            <constraint firstItem="cd9-Em-ZYn" firstAttribute="leading" secondItem="Bby-zV-zYH" secondAttribute="leading" id="eno-Ku-Sac"/>
-                            <constraint firstItem="cd9-Em-ZYn" firstAttribute="top" secondItem="Bby-zV-zYH" secondAttribute="top" id="nzj-e6-maf"/>
-                            <constraint firstItem="Bby-zV-zYH" firstAttribute="bottom" secondItem="cd9-Em-ZYn" secondAttribute="bottom" id="pfl-bb-HJV"/>
-                            <constraint firstItem="Bby-zV-zYH" firstAttribute="trailing" secondItem="cd9-Em-ZYn" secondAttribute="trailing" id="xow-4I-WPe"/>
+                            <constraint firstItem="cd9-Em-ZYn" firstAttribute="leading" secondItem="H0y-8A-p6Y" secondAttribute="leading" id="eno-Ku-Sac"/>
+                            <constraint firstItem="cd9-Em-ZYn" firstAttribute="top" secondItem="H0y-8A-p6Y" secondAttribute="top" constant="91" id="nzj-e6-maf"/>
+                            <constraint firstAttribute="bottom" secondItem="cd9-Em-ZYn" secondAttribute="bottom" constant="49" id="pfl-bb-HJV"/>
+                            <constraint firstAttribute="trailing" secondItem="cd9-Em-ZYn" secondAttribute="trailing" id="xow-4I-WPe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bby-zV-zYH"/>
                     </view>
@@ -190,7 +195,7 @@
             <objects>
                 <viewController id="EaC-7I-34A" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="clU-EE-4Hl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="477"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="SiP-IT-CiB"/>

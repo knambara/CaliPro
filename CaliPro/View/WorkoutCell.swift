@@ -17,6 +17,13 @@ class WorkoutCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         workoutContainer.layer.cornerRadius = workoutContainer.frame.size.height / 5
+        
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.checkAction))
+        workoutContainer.addGestureRecognizer(gesture)
+    }
+    
+    @objc func checkAction(sender : UITapGestureRecognizer) {
+        print("yay")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -30,6 +30,14 @@ class DashboardVC: UIViewController {
         populateWorkouts()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barStyle = .black
+    }
+    
     func populateSplits() {
         var splits: [WorkoutSplit] = []
         let split1 = WorkoutSplit(name: "split1", days: ["M","T", "W", "Th", "F"])
@@ -63,10 +71,24 @@ extension DashboardVC: UITableViewDataSource {
         //        return label
         
         let button = UIButton(type: .system)
-        button.setTitle("Close", for: .normal)
+//        if section == 0 {
+//            let title = NSMutableAttributedString.init(string: "Splits")
+//            // Add Underline Style Attribute.
+//            title.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range:
+//                NSRange.init(location: 0, length: title.length));
+//            button.setAttributedTitle(title, for: .normal)
+//        } else {
+//            let title = NSMutableAttributedString.init(string: "Workouts")
+//            // Add Underline Style Attribute.
+//            title.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range:
+//                NSRange.init(location: 0, length: title.length));
+//            button.setAttributedTitle(title, for: .normal)
+//        }
+        section == 0 ? button.setTitle("Splits", for: .normal) : button.setTitle("Workouts", for: .normal)
         button.setTitleColor(.lightGray, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.backgroundColor = .yellow
+        button.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
         button.addTarget(self, action: #selector(toggleSection), for: .touchUpInside)
         button.tag = section
         return button
@@ -105,6 +127,7 @@ extension DashboardVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
