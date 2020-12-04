@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Exercise {
+struct ExerciseStruct {
     let name: String
     let description: String
     let equipment: [String]

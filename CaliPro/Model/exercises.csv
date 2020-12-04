@@ -1,0 +1,4 @@
+id,name,category,equipment,description,primary_muscle,secondary_muscle,difficulty,unilateral
+1,Pull-up,vertical-pull,pull-up bar bodyweight,testing,back,bicep,intermediate,0
+2,Push-up,horizontal-push,bodyweight,testing,chest,tricep,intermediate,0
+3,Bodyweight Squat,legs,bodyweight,testing,quads hamstrings glutes,calves lower back,beginner,0
