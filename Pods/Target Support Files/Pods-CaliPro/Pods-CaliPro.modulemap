@@ -1,0 +1,6 @@
+framework module Pods_CaliPro {
+  umbrella header "Pods-CaliPro-umbrella.h"
+
+  export *
+  module * { export * }
+}

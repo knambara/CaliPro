@@ -3,31 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		342EECE9A8E3152454F2C123 /* Pods_CaliPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F73C92B599E4D82025659C /* Pods_CaliPro.framework */; };
 		D76D2ABC2572A1870012C6A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2ABB2572A1870012C6A4 /* AppDelegate.swift */; };
 		D76D2ABE2572A1870012C6A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2ABD2572A1870012C6A4 /* SceneDelegate.swift */; };
 		D76D2AC32572A1870012C6A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D76D2AC12572A1870012C6A4 /* Main.storyboard */; };
 		D76D2AC52572A18C0012C6A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D76D2AC42572A18C0012C6A4 /* Assets.xcassets */; };
 		D76D2AC82572A18C0012C6A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D76D2AC62572A18C0012C6A4 /* LaunchScreen.storyboard */; };
-		D76D2AD32572CF9B0012C6A4 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2AD22572CF9B0012C6A4 /* Workout.swift */; };
-		D76D2AD52572D08D0012C6A4 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2AD42572D08D0012C6A4 /* Exercise.swift */; };
-		D76D2AD72572D20F0012C6A4 /* WorkoutSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2AD62572D20F0012C6A4 /* WorkoutSet.swift */; };
 		D76D2AD925754CE20012C6A4 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2AD825754CE20012C6A4 /* DashboardVC.swift */; };
 		D76D2ADC257557670012C6A4 /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2ADA257557670012C6A4 /* WorkoutCell.swift */; };
 		D76D2ADF257578F40012C6A4 /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2ADE257578F40012C6A4 /* AddButtonCell.swift */; };
 		D76D2AE525768BE30012C6A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2AE425768BE30012C6A4 /* Constants.swift */; };
 		D76D2AE92576A9410012C6A4 /* WorkoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76D2AE82576A9410012C6A4 /* WorkoutCell.xib */; };
 		D76D2AEB2576AF640012C6A4 /* AddButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76D2AEA2576AF640012C6A4 /* AddButtonCell.xib */; };
-		D76D2AED2577D99F0012C6A4 /* WorkoutSplit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2AEC2577D99F0012C6A4 /* WorkoutSplit.swift */; };
 		D76D2AEF2577E2020012C6A4 /* WorkoutSplitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D76D2AEE2577E2020012C6A4 /* WorkoutSplitCell.xib */; };
 		D76D2AF12577E2730012C6A4 /* WorkoutSplitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2AF02577E2730012C6A4 /* WorkoutSplitCell.swift */; };
 		D76D2AF32577F0FE0012C6A4 /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2AF22577F0FE0012C6A4 /* Expandable.swift */; };
+		D76D2AF825793AFD0012C6A4 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2AF725793AFD0012C6A4 /* DatabaseManager.swift */; };
+		D76D2B1B257A72CD0012C6A4 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D76D2B19257A72CD0012C6A4 /* DataModel.xcdatamodeld */; };
+		D76D2B42257A82DE0012C6A4 /* preload_data.db in Resources */ = {isa = PBXBuildFile; fileRef = D76D2B41257A82DE0012C6A4 /* preload_data.db */; };
+		D76D2B44257A98B20012C6A4 /* exercises.csv in Resources */ = {isa = PBXBuildFile; fileRef = D76D2B43257A98B20012C6A4 /* exercises.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75F73C92B599E4D82025659C /* Pods_CaliPro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CaliPro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8715453C3FF4FDBDD3F6D869 /* Pods-CaliPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaliPro.release.xcconfig"; path = "Target Support Files/Pods-CaliPro/Pods-CaliPro.release.xcconfig"; sourceTree = "<group>"; };
+		B37BE04CAE9AEABD1D1E2BCB /* Pods-CaliPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CaliPro.debug.xcconfig"; path = "Target Support Files/Pods-CaliPro/Pods-CaliPro.debug.xcconfig"; sourceTree = "<group>"; };
 		D76D2AB82572A1870012C6A4 /* CaliPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaliPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D76D2ABB2572A1870012C6A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D76D2ABD2572A1870012C6A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,19 +39,19 @@
 		D76D2AC42572A18C0012C6A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D76D2AC72572A18C0012C6A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D76D2AC92572A18C0012C6A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D76D2AD22572CF9B0012C6A4 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
-		D76D2AD42572D08D0012C6A4 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
-		D76D2AD62572D20F0012C6A4 /* WorkoutSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSet.swift; sourceTree = "<group>"; };
 		D76D2AD825754CE20012C6A4 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		D76D2ADA257557670012C6A4 /* WorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCell.swift; sourceTree = "<group>"; };
 		D76D2ADE257578F40012C6A4 /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
 		D76D2AE425768BE30012C6A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D76D2AE82576A9410012C6A4 /* WorkoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutCell.xib; sourceTree = "<group>"; };
 		D76D2AEA2576AF640012C6A4 /* AddButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonCell.xib; sourceTree = "<group>"; };
-		D76D2AEC2577D99F0012C6A4 /* WorkoutSplit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSplit.swift; sourceTree = "<group>"; };
 		D76D2AEE2577E2020012C6A4 /* WorkoutSplitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutSplitCell.xib; sourceTree = "<group>"; };
 		D76D2AF02577E2730012C6A4 /* WorkoutSplitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSplitCell.swift; sourceTree = "<group>"; };
 		D76D2AF22577F0FE0012C6A4 /* Expandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
+		D76D2AF725793AFD0012C6A4 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		D76D2B1A257A72CD0012C6A4 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		D76D2B41257A82DE0012C6A4 /* preload_data.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = preload_data.db; sourceTree = "<group>"; };
+		D76D2B43257A98B20012C6A4 /* exercises.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = exercises.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,17 +59,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				342EECE9A8E3152454F2C123 /* Pods_CaliPro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23F19EC4B772CA27D950CEB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75F73C92B599E4D82025659C /* Pods_CaliPro.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC66C406430FCF24ABD35C47 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B37BE04CAE9AEABD1D1E2BCB /* Pods-CaliPro.debug.xcconfig */,
+				8715453C3FF4FDBDD3F6D869 /* Pods-CaliPro.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D76D2AAF2572A1860012C6A4 = {
 			isa = PBXGroup;
 			children = (
 				D76D2ABA2572A1870012C6A4 /* CaliPro */,
 				D76D2AB92572A1870012C6A4 /* Products */,
+				BC66C406430FCF24ABD35C47 /* Pods */,
+				23F19EC4B772CA27D950CEB2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +113,7 @@
 				D76D2AC62572A18C0012C6A4 /* LaunchScreen.storyboard */,
 				D76D2AC92572A18C0012C6A4 /* Info.plist */,
 				D76D2AE425768BE30012C6A4 /* Constants.swift */,
+				D76D2AF725793AFD0012C6A4 /* DatabaseManager.swift */,
 			);
 			path = CaliPro;
 			sourceTree = "<group>";
@@ -96,10 +121,9 @@
 		D76D2ACF2572A6E00012C6A4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D76D2AD22572CF9B0012C6A4 /* Workout.swift */,
-				D76D2AD42572D08D0012C6A4 /* Exercise.swift */,
-				D76D2AD62572D20F0012C6A4 /* WorkoutSet.swift */,
-				D76D2AEC2577D99F0012C6A4 /* WorkoutSplit.swift */,
+				D76D2B43257A98B20012C6A4 /* exercises.csv */,
+				D76D2B41257A82DE0012C6A4 /* preload_data.db */,
+				D76D2B19257A72CD0012C6A4 /* DataModel.xcdatamodeld */,
 				D76D2AF22577F0FE0012C6A4 /* Expandable.swift */,
 			);
 			path = Model;
@@ -134,9 +158,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D76D2ACC2572A18C0012C6A4 /* Build configuration list for PBXNativeTarget "CaliPro" */;
 			buildPhases = (
+				8A4C2136106CE4B490011096 /* [CP] Check Pods Manifest.lock */,
 				D76D2AB42572A1860012C6A4 /* Sources */,
 				D76D2AB52572A1860012C6A4 /* Frameworks */,
 				D76D2AB62572A1860012C6A4 /* Resources */,
+				60979F2E7F5FA21F290E471B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -187,7 +213,9 @@
 			files = (
 				D76D2AC82572A18C0012C6A4 /* LaunchScreen.storyboard in Resources */,
 				D76D2AEB2576AF640012C6A4 /* AddButtonCell.xib in Resources */,
+				D76D2B44257A98B20012C6A4 /* exercises.csv in Resources */,
 				D76D2AC52572A18C0012C6A4 /* Assets.xcassets in Resources */,
+				D76D2B42257A82DE0012C6A4 /* preload_data.db in Resources */,
 				D76D2AC32572A1870012C6A4 /* Main.storyboard in Resources */,
 				D76D2AEF2577E2020012C6A4 /* WorkoutSplitCell.xib in Resources */,
 				D76D2AE92576A9410012C6A4 /* WorkoutCell.xib in Resources */,
@@ -196,19 +224,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		60979F2E7F5FA21F290E471B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CaliPro/Pods-CaliPro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CaliPro/Pods-CaliPro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CaliPro/Pods-CaliPro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A4C2136106CE4B490011096 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CaliPro-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D76D2AB42572A1860012C6A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D76D2AD52572D08D0012C6A4 /* Exercise.swift in Sources */,
 				D76D2AD925754CE20012C6A4 /* DashboardVC.swift in Sources */,
+				D76D2AF825793AFD0012C6A4 /* DatabaseManager.swift in Sources */,
+				D76D2B1B257A72CD0012C6A4 /* DataModel.xcdatamodeld in Sources */,
 				D76D2ABC2572A1870012C6A4 /* AppDelegate.swift in Sources */,
 				D76D2ADF257578F40012C6A4 /* AddButtonCell.swift in Sources */,
-				D76D2AED2577D99F0012C6A4 /* WorkoutSplit.swift in Sources */,
 				D76D2ABE2572A1870012C6A4 /* SceneDelegate.swift in Sources */,
-				D76D2AD72572D20F0012C6A4 /* WorkoutSet.swift in Sources */,
-				D76D2AD32572CF9B0012C6A4 /* Workout.swift in Sources */,
 				D76D2ADC257557670012C6A4 /* WorkoutCell.swift in Sources */,
 				D76D2AF12577E2730012C6A4 /* WorkoutSplitCell.swift in Sources */,
 				D76D2AE525768BE30012C6A4 /* Constants.swift in Sources */,
@@ -354,6 +422,7 @@
 		};
 		D76D2ACD2572A18C0012C6A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B37BE04CAE9AEABD1D1E2BCB /* Pods-CaliPro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -373,6 +442,7 @@
 		};
 		D76D2ACE2572A18C0012C6A4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8715453C3FF4FDBDD3F6D869 /* Pods-CaliPro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -412,6 +482,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D76D2B19257A72CD0012C6A4 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D76D2B1A257A72CD0012C6A4 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = D76D2B1A257A72CD0012C6A4 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D76D2AB02572A1860012C6A4 /* Project object */;
 }

@@ -7,16 +7,40 @@
 //
 
 import UIKit
+import CoreData
 
 class DashboardVC: UIViewController {
     
     @IBOutlet weak var workoutTableView: UITableView!
     
-    var splitsSection: Expandable<WorkoutSplit>!
-    var workoutsSection: Expandable<Workout>!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    private var exerciseFRC: NSFetchedResultsController<NSFetchRequestResult>?
+    private var workoutFRC: NSFetchedResultsController<NSFetchRequestResult>?
+    private var splitFRC: NSFetchedResultsController<NSFetchRequestResult>?
+    
+    var splitSectionExpanded = true
+    var workoutSectionExpanded = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let workout1 = Workout(context: context)
+        workout1.name = "Test Workout"
+        workout1.type = "Upper Body"
+        workout1.duration = 45
+        let workout2 = Workout(context: context)
+        workout2.name = "Test Workout"
+        workout2.type = "Upper Body"
+        workout2.duration = 45
+        
+        do {
+            try context.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        configureFetchedResultsController()
+        
         navigationItem.title = "Dashboard"
         
         workoutTableView.dataSource = self
@@ -26,8 +50,35 @@ class DashboardVC: UIViewController {
         workoutTableView.register(UINib(nibName: K.addCellNibname, bundle: nil), forCellReuseIdentifier: K.addCellNibname)
         workoutTableView.rowHeight = 100;
         
-        populateSplits()
-        populateWorkouts()
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+    }
+    
+    private func configureFetchedResultsController() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Exercise")
+        let workoutFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Workout")
+        let splitFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Split")
+        
+        // let test: NSFetchRequest<Exercise> = Exercise.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        workoutFetchRequest.sortDescriptors = [sortDescriptor]
+        splitFetchRequest.sortDescriptors = [sortDescriptor]
+        
+        exerciseFRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        workoutFRC = NSFetchedResultsController(fetchRequest: workoutFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        splitFRC = NSFetchedResultsController(fetchRequest: splitFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+                
+        exerciseFRC?.delegate = self
+        workoutFRC?.delegate = self
+        splitFRC?.delegate = self
+        
+        do {
+            try exerciseFRC?.performFetch()
+            try workoutFRC?.performFetch()
+            try splitFRC?.performFetch()
+        } catch {
+            print("Could not perforom fetch due to error: \(error.localizedDescription)")
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -38,26 +89,15 @@ class DashboardVC: UIViewController {
         navigationController?.navigationBar.barStyle = .black
     }
     
-    func populateSplits() {
-        var splits: [WorkoutSplit] = []
-        let split1 = WorkoutSplit(name: "split1", days: ["M","T", "W", "Th", "F"])
-        let split2 = WorkoutSplit(name: "split2", days: ["M","T", "W", "Th", "F"])
-        let split3 = WorkoutSplit(name: "split3", days: ["M","T", "W", "Th", "F"])
-        splits.append(split1)
-        splits.append(split2)
-        splits.append(split3)
-        self.splitsSection = Expandable<WorkoutSplit>(with: splits, expanded: true)
-    }
-    
-    func populateWorkouts() {
-        var workouts: [Workout] = []
-        let exercise1 = Exercise(name: "pull-up", description: "test", equipment: ["pull-up bar"], category: "bodyweight", primaryMuscle: ["back"], difficulty: "intermediate")
-        let workoutSet = WorkoutSet(exercise: exercise1, reps: 10, sets: 4)
-        let workout = Workout(name: "Test Workout", duration: 60, sets: [workoutSet])
-        workouts.append(workout)
-        self.workoutsSection = Expandable<Workout>(with: workouts, expanded: true)
-    }
+}
 
+// MARK: - NSFetchedResultsControllerDelegate
+
+extension DashboardVC: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        print("CONTROLLER CONTENT HAS CHANGED")
+        workoutTableView.reloadData()
+    }
 }
 
  // MARK: - DataSource
@@ -65,25 +105,7 @@ class DashboardVC: UIViewController {
 extension DashboardVC: UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        //        let label = UILabel()
-        //        label.text  = "Header"
-        //        label.backgroundColor = .lightGray
-        //        return label
-        
         let button = UIButton(type: .system)
-//        if section == 0 {
-//            let title = NSMutableAttributedString.init(string: "Splits")
-//            // Add Underline Style Attribute.
-//            title.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range:
-//                NSRange.init(location: 0, length: title.length));
-//            button.setAttributedTitle(title, for: .normal)
-//        } else {
-//            let title = NSMutableAttributedString.init(string: "Workouts")
-//            // Add Underline Style Attribute.
-//            title.addAttribute(NSAttributedString.Key.underlineStyle, value: 1, range:
-//                NSRange.init(location: 0, length: title.length));
-//            button.setAttributedTitle(title, for: .normal)
-//        }
         section == 0 ? button.setTitle("Splits", for: .normal) : button.setTitle("Workouts", for: .normal)
         button.setTitleColor(.lightGray, for: .normal)
         button.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.left
@@ -97,14 +119,16 @@ extension DashboardVC: UITableViewDataSource {
     @objc func toggleSection(button: UIButton) {
         let section = button.tag
         var indexPaths = [IndexPath]()
+        let numSplits = splitFRC?.sections?[0].numberOfObjects ?? 0
+        let numWorkouts = workoutFRC?.sections?[0].numberOfObjects ?? 0
         
         if (section == 0) {
-            for row in 0..<self.splitsSection.items.count+1 {
+            for row in 0..<numSplits+1 {
                 let indexPath = IndexPath(row: row, section: 0)
                 indexPaths.append(indexPath)
             }
-            self.splitsSection.isExpanded = !self.splitsSection.isExpanded
-            if self.splitsSection.isExpanded {
+            splitSectionExpanded = !splitSectionExpanded
+            if splitSectionExpanded {
                 self.workoutTableView.insertRows(at: indexPaths, with: .fade)
             } else {
                 self.workoutTableView.deleteRows(at: indexPaths, with: .fade)
@@ -112,12 +136,12 @@ extension DashboardVC: UITableViewDataSource {
             return
         }
         
-        for row in 0..<self.workoutsSection.items.count+1 {
+        for row in 0..<numWorkouts+1 {
             let indexPath = IndexPath(row: row, section: 1)
             indexPaths.append(indexPath)
         }
-        self.workoutsSection.isExpanded = !self.workoutsSection.isExpanded
-        if self.workoutsSection.isExpanded {
+        workoutSectionExpanded = !workoutSectionExpanded
+        if workoutSectionExpanded {
             self.workoutTableView.insertRows(at: indexPaths, with: .fade)
         } else {
             self.workoutTableView.deleteRows(at: indexPaths, with: .fade)
@@ -135,34 +159,40 @@ extension DashboardVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 0) {
-            return  self.splitsSection.isExpanded ? self.splitsSection.items.count + 1 : 0
+            if !splitSectionExpanded { return 0 }
+            guard let sections = splitFRC?.sections else { return 0 }
+            return sections[0].numberOfObjects+1
         }
-        return self.workoutsSection.isExpanded ? self.workoutsSection.items.count + 1 : 0
+        if !workoutSectionExpanded { return 0 }
+        guard let sections = workoutFRC?.sections else { return 0 }
+        return sections[0].numberOfObjects+1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Workout splits section
+        let addButton = tableView.dequeueReusableCell(withIdentifier: K.addCellNibname) as! AddButtonCell
+        let splitCell = tableView.dequeueReusableCell(withIdentifier: K.splitCellNibname ) as! WorkoutSplitCell
+        let workoutCell = tableView.dequeueReusableCell(withIdentifier: K.itemCellNibname ) as! WorkoutCell
+        
         if (indexPath.section == 0) {
-            if (indexPath.row == self.splitsSection.items.count) {
-                let addButton = tableView.dequeueReusableCell(withIdentifier: K.addCellNibname) as! AddButtonCell
+            if (indexPath.row == splitFRC?.sections?[0].numberOfObjects) {
                 return addButton
             }
-            let workoutSplitCell = tableView.dequeueReusableCell(withIdentifier: K.splitCellNibname ) as! WorkoutSplitCell
-            workoutSplitCell.setLabels(with: self.splitsSection.items[indexPath.row])
-            return workoutSplitCell
+            if let split = splitFRC?.object(at: indexPath) as? Split {
+                print(indexPath)
+                splitCell.setLabels(with: split)
+            }
+            return splitCell
         }
         
-        // Workout items section
-        if (indexPath.row == self.workoutsSection.items.count) {
-            let addButton = tableView.dequeueReusableCell(withIdentifier: K.addCellNibname) as! AddButtonCell
+        if (indexPath.row == workoutFRC?.sections?[0].numberOfObjects) {
             return addButton
         }
-        let workout = self.workoutsSection.items[indexPath.row]
-        let workoutCell = tableView.dequeueReusableCell(withIdentifier: K.itemCellNibname ) as! WorkoutCell
-        workoutCell.setLabels(with: workout)
+        let path = IndexPath(row: indexPath.row, section: 0)
+        if let workout = workoutFRC?.object(at: path) as? Workout {
+            workoutCell.setLabels(with: workout)
+        }
         return workoutCell
     }
-    
 }
 
  // MARK: - Delegate

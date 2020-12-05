@@ -13,5 +13,7 @@ struct K {
     static let itemCellNibname = "WorkoutCell"
     static let addCellNibname = "AddButtonCell"
     static let splitCellNibname = "WorkoutSplitCell"
+    
+    static let preloadedDataKey = "didPreloadData"
 }
 

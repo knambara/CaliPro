@@ -183,28 +183,11 @@
                     <navigationItem key="navigationItem" id="dt8-8x-rWf"/>
                     <connections>
                         <outlet property="workoutTableView" destination="cd9-Em-ZYn" id="RcN-aF-QK2"/>
-                        <segue destination="EaC-7I-34A" kind="show" identifier="addWorkoutSegue" id="LJL-Qz-GVu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4r-1J-hs7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-397.5" y="1467.2535211267607"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="uAN-Ed-eh3">
-            <objects>
-                <viewController id="EaC-7I-34A" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="clU-EE-4Hl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="477"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="SiP-IT-CiB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="CZg-Om-2XP"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b1n-Wc-BfN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-767" y="2193"/>
         </scene>
     </scenes>
     <resources>

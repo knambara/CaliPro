@@ -22,5 +22,10 @@ class AddButtonCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func addButtonPressed(_ sender: Any) {
+        print("addPressed")
+    }
+    
 
 }

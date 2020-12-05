@@ -9,11 +9,11 @@
 import Foundation
 
 struct WorkoutSet {
-    let exercise: Exercise
+    let exercise: ExerciseStruct
     let reps : Int
     let sets: Int
     
-    init(exercise: Exercise, reps: Int, sets: Int) {
+    init(exercise: ExerciseStruct, reps: Int, sets: Int) {
         self.exercise = exercise
         self.reps = reps
         self.sets = sets

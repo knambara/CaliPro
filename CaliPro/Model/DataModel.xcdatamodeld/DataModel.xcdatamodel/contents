@@ -1,4 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="Exercise" representedClassName=".Exercise" syncable="YES" codeGenerationType="class">
+        <attribute name="category" attributeType="String"/>
+        <attribute name="difficulty" attributeType="String"/>
+        <attribute name="equipment" attributeType="String"/>
+        <attribute name="instruction" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="primary" attributeType="String"/>
+        <attribute name="secondary" attributeType="String"/>
+        <attribute name="unilateral" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="parentSet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Set" inverseName="exercise" inverseEntity="Set"/>
+    </entity>
+    <entity name="Set" representedClassName=".Set" syncable="YES" codeGenerationType="class">
+        <attribute name="reps" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="restTime" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sortOrder" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="parentSet" inverseEntity="Exercise"/>
+        <relationship name="parentWorkout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="sets" inverseEntity="Workout"/>
+    </entity>
+    <entity name="Split" representedClassName=".Split" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="workouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Workout" inverseName="parentSplit" inverseEntity="Workout"/>
+    </entity>
+    <entity name="Workout" representedClassName=".Workout" syncable="YES" codeGenerationType="class">
+        <attribute name="dayOfWeek" optional="YES" attributeType="String"/>
+        <attribute name="duration" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="type" attributeType="String"/>
+        <relationship name="parentSplit" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Split" inverseName="workouts" inverseEntity="Split"/>
+        <relationship name="sets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Set" inverseName="parentWorkout" inverseEntity="Set"/>
+    </entity>
+    <elements>
+        <element name="Exercise" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="Workout" positionX="184.390625" positionY="-258.8359375" width="128" height="133"/>
+        <element name="Split" positionX="-59.8359375" positionY="-261.7109375" width="128" height="73"/>
+        <element name="Set" positionX="198.15234375" positionY="-12.26171875" width="128" height="118"/>
+    </elements>
 </model>

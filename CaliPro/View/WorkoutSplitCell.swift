@@ -24,16 +24,8 @@ class WorkoutSplitCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setLabels(with split: WorkoutSplit) {
+    func setLabels(with split: Split) {
         self.splitNameLabel.text = split.name
         self.daysOfWeekLabel.text = ""
-        
-        let days = ["Su", "M", "T","W","Th","F","Sa"]
-        for day in days {
-            if (split.daysOfWeek[day] == true) {
-                self.daysOfWeekLabel.text?.append(day)
-            }
-        }
     }
-
 }
