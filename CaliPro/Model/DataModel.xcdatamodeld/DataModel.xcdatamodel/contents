@@ -9,31 +9,47 @@
         <attribute name="primary" attributeType="String"/>
         <attribute name="secondary" attributeType="String"/>
         <attribute name="unilateral" attributeType="Boolean" usesScalarValueType="YES"/>
-        <relationship name="parentSet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Set" inverseName="exercise" inverseEntity="Set"/>
-    </entity>
-    <entity name="Set" representedClassName=".Set" syncable="YES" codeGenerationType="class">
-        <attribute name="reps" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="restTime" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="sortOrder" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="parentSet" inverseEntity="Exercise"/>
-        <relationship name="parentWorkout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="sets" inverseEntity="Workout"/>
+        <relationship name="parentSet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WorkoutSet" inverseName="exercise" inverseEntity="WorkoutSet"/>
+        <relationship name="parentWorkoutBlocks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WorkoutBlock" inverseName="exercise" inverseEntity="WorkoutBlock"/>
     </entity>
     <entity name="Split" representedClassName=".Split" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String"/>
-        <relationship name="workouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Workout" inverseName="parentSplit" inverseEntity="Workout"/>
+        <relationship name="workouts" optional="YES" toMany="YES" minCount="1" maxCount="7" deletionRule="Nullify" destinationEntity="WorkoutWithDate" inverseName="containedSplits" inverseEntity="WorkoutWithDate"/>
     </entity>
     <entity name="Workout" representedClassName=".Workout" syncable="YES" codeGenerationType="class">
-        <attribute name="dayOfWeek" optional="YES" attributeType="String"/>
-        <attribute name="duration" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="duration" attributeType="Integer 16" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="type" attributeType="String"/>
-        <relationship name="parentSplit" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Split" inverseName="workouts" inverseEntity="Split"/>
-        <relationship name="sets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Set" inverseName="parentWorkout" inverseEntity="Set"/>
+        <relationship name="workoutBlocks" toMany="YES" deletionRule="Nullify" destinationEntity="WorkoutBlock" inverseName="parentWorkoutRoutine" inverseEntity="WorkoutBlock"/>
+    </entity>
+    <entity name="WorkoutBlock" representedClassName="WorkoutBlock" syncable="YES" codeGenerationType="class">
+        <attribute name="maximumReps" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="minimumReps" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numberOfSets" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="restTime" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="sortOrderNumber" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <relationship name="exercise" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="parentWorkoutBlocks" inverseEntity="Exercise"/>
+        <relationship name="parentWorkoutRoutine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="workoutBlocks" inverseEntity="Workout"/>
+    </entity>
+    <entity name="WorkoutSet" representedClassName=".WorkoutSet" syncable="YES" codeGenerationType="class">
+        <attribute name="maximumReps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="minimumReps" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="restTime" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sortOrder" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="exercise" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="parentSet" inverseEntity="Exercise"/>
+        <relationship name="parentWorkoutBlock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkoutBlock"/>
+    </entity>
+    <entity name="WorkoutWithDate" representedClassName="WorkoutWithDate" parentEntity="Workout" syncable="YES" codeGenerationType="class">
+        <attribute name="dayOfWeek" optional="YES" attributeType="String"/>
+        <relationship name="containedSplits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Split" inverseName="workouts" inverseEntity="Split"/>
     </entity>
     <elements>
-        <element name="Exercise" positionX="-63" positionY="-18" width="128" height="178"/>
-        <element name="Workout" positionX="184.390625" positionY="-258.8359375" width="128" height="133"/>
-        <element name="Split" positionX="-59.8359375" positionY="-261.7109375" width="128" height="73"/>
-        <element name="Set" positionX="198.15234375" positionY="-12.26171875" width="128" height="118"/>
+        <element name="Exercise" positionX="264.11328125" positionY="-302.921875" width="128" height="193"/>
+        <element name="Split" positionX="90.00390625" positionY="-353.41796875" width="128" height="73"/>
+        <element name="Workout" positionX="-182.26953125" positionY="-227.453125" width="128" height="118"/>
+        <element name="WorkoutBlock" positionX="54.21875" positionY="-251.22265625" width="128" height="148"/>
+        <element name="WorkoutSet" positionX="261.77734375" positionY="-57.90625" width="128" height="133"/>
+        <element name="WorkoutWithDate" positionX="-180.6875" positionY="-378.34375" width="128" height="73"/>
     </elements>
 </model>

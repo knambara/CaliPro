@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Happens first
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        IQKeyboardManager.shared.enable = true
+        
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().tintColor = UIColor(red: 35/255, green: 234/255, blue: 230/255, alpha: 1)
@@ -65,7 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         rows.removeFirst()
         for row in rows {
             let columns = row.components(separatedBy: ",")
-            print(columns.count)
             if columns.count != 9 {
                 continue
             }
@@ -86,7 +88,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(parsedData)
                 do {
                     for data in parsedData {
-                        print(data)
                         let exercise = Exercise(context: backgroundContext)
                         exercise.name = data[1]
                         exercise.category = data[2]

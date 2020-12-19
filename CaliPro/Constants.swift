@@ -15,5 +15,7 @@ struct K {
     static let splitCellNibname = "WorkoutSplitCell"
     
     static let preloadedDataKey = "didPreloadData"
+    
+    static let workoutPageCellIdentifier = "WorkoutConfigurationCell"
 }
 

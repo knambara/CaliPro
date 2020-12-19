@@ -24,21 +24,6 @@ class DashboardVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let workout1 = Workout(context: context)
-        workout1.name = "Test Workout"
-        workout1.type = "Upper Body"
-        workout1.duration = 45
-        let workout2 = Workout(context: context)
-        workout2.name = "Test Workout"
-        workout2.type = "Upper Body"
-        workout2.duration = 45
-        
-        do {
-            try context.save()
-        } catch {
-            print(error.localizedDescription)
-        }
-        
         configureFetchedResultsController()
         
         navigationItem.title = "Dashboard"
@@ -173,6 +158,8 @@ extension DashboardVC: UITableViewDataSource {
         let splitCell = tableView.dequeueReusableCell(withIdentifier: K.splitCellNibname ) as! WorkoutSplitCell
         let workoutCell = tableView.dequeueReusableCell(withIdentifier: K.itemCellNibname ) as! WorkoutCell
         
+        addButton.delegate = self
+        
         if (indexPath.section == 0) {
             if (indexPath.row == splitFRC?.sections?[0].numberOfObjects) {
                 return addButton
@@ -195,10 +182,19 @@ extension DashboardVC: UITableViewDataSource {
     }
 }
 
- // MARK: - Delegate
+ // MARK: - UITableiewDelegate
 
 extension DashboardVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
+    }
+}
+
+
+// MARK: - AddButtonCellDelegate
+
+extension DashboardVC: AddButtonCellDelegate {
+    func callSegueFromAddButton(myData dataobject: AnyObject) {
+        self.performSegue(withIdentifier: "addWorkout", sender:self )
     }
 }

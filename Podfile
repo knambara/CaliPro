@@ -5,5 +5,7 @@ target 'CaliPro' do
 
   # Pods for CaliPro
   pod 'SQLite.swift', '~> 0.12.0'
+  
+  pod 'IQKeyboardManagerSwift'
 
 end
