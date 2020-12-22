@@ -84,7 +84,7 @@ class ExercisesVC: UITableViewController {
 // MARK: - NSFetchedResultsControllerDelegate
 extension ExercisesVC: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        print("CONTROLLER CONTENT HAS CHANGED")
+        print("CONTROLLER CONTENT HAS CHANGED *****")
     }
 }
 

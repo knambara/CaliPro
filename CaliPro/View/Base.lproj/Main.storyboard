@@ -457,7 +457,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="exerciseName" destination="tG7-sV-xcz" id="NE9-Ne-HQe"/>
+                                            <outlet property="exerciseName" destination="tG7-sV-xcz" id="XPY-R2-gVO"/>
                                             <outlet property="maxRepsTextField" destination="h1q-SU-raM" id="fhx-Tq-3Q5"/>
                                             <outlet property="minRepsTextField" destination="Yhi-FO-IZ1" id="bmY-P9-OqK"/>
                                             <outlet property="minusButton" destination="1I2-QG-gsl" id="Qs2-bn-gXZ"/>

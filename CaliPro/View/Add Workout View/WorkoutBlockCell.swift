@@ -57,7 +57,6 @@ class WorkoutBlockCell: UITableViewCell {
     @objc
     func changeExercise(sender:UITapGestureRecognizer) {
         print("tap working")
-        print(rowNum)
         guard let row = rowNum else { return }
         let indexPath = IndexPath(row: row, section: 1)
         delegate?.callSegueFromCell(from: indexPath, to: "ShowExerciseList")
@@ -117,10 +116,14 @@ class WorkoutBlockCell: UITableViewCell {
         self.setLabels()
     }
     
+    func setRowNum(_ row: Int) {
+        self.rowNum = row
+        self.setLabels()
+    }
+    
     func setLabels() {
         guard let row = self.rowNum else { return }
         guard let exercise = self.exercise else { return }
-        
         placeholder.text = "Exercise \(row+1)"
         exerciseName.text = exercise.name
     }

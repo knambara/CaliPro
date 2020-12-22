@@ -15,7 +15,7 @@ class DashboardVC: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    private var exerciseFRC: NSFetchedResultsController<NSFetchRequestResult>?
+    //private var exerciseFRC: NSFetchedResultsController<NSFetchRequestResult>?
     private var workoutFRC: NSFetchedResultsController<NSFetchRequestResult>?
     private var splitFRC: NSFetchedResultsController<NSFetchRequestResult>?
     
@@ -49,16 +49,16 @@ class DashboardVC: UIViewController {
         workoutFetchRequest.sortDescriptors = [sortDescriptor]
         splitFetchRequest.sortDescriptors = [sortDescriptor]
         
-        exerciseFRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        //exerciseFRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         workoutFRC = NSFetchedResultsController(fetchRequest: workoutFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         splitFRC = NSFetchedResultsController(fetchRequest: splitFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
                 
-        exerciseFRC?.delegate = self
+        // exerciseFRC?.delegate = self
         workoutFRC?.delegate = self
         splitFRC?.delegate = self
         
         do {
-            try exerciseFRC?.performFetch()
+            // try exerciseFRC?.performFetch()
             try workoutFRC?.performFetch()
             try splitFRC?.performFetch()
         } catch {
@@ -165,7 +165,6 @@ extension DashboardVC: UITableViewDataSource {
                 return addButton
             }
             if let split = splitFRC?.object(at: indexPath) as? Split {
-                print(indexPath)
                 splitCell.setLabels(with: split)
             }
             return splitCell
@@ -186,7 +185,6 @@ extension DashboardVC: UITableViewDataSource {
 
 extension DashboardVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
     }
 }
 

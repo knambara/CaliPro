@@ -56,6 +56,10 @@ class AddWorkoutVC: UIViewController, AddWorkoutTableViewCellDelegate, ExerciseT
     
     @IBAction func backBarButtonPressed(_ sender: Any) {
         // delete workout blocks
+        for workoutBlock in workoutBlocks {
+            context.delete(workoutBlock)
+        }
+        saveContext()
         navigationController?.popViewController(animated: true)
     }
     
@@ -65,7 +69,6 @@ class AddWorkoutVC: UIViewController, AddWorkoutTableViewCellDelegate, ExerciseT
         guard let workoutType = self.workoutType else { return }
         guard let duration = self.duration else { return }
         
-        print("save")
         let workout = Workout(context: self.context)
         
         for workoutBlock in workoutBlocks {
@@ -135,14 +138,23 @@ class AddWorkoutVC: UIViewController, AddWorkoutTableViewCellDelegate, ExerciseT
             self.exercises[row] = exercise
             let block = workoutBlocks[row]
             block.exercise = exercise
-            let indexPath = IndexPath(row: row, section: 1)
-            addWorkoutTableView.reloadRows(at: [indexPath], with: .left)
-            rowIndexToChange = nil
             saveContext()
+            
+            addWorkoutTableView.beginUpdates()
+            let indexPath = IndexPath(row: row, section: 1)
+            let cell = addWorkoutTableView.cellForRow(at: indexPath) as! WorkoutBlockCell
+            cell.setExercise(exercise, row: row)
+            addWorkoutTableView.endUpdates()
+            
+            rowIndexToChange = nil
             return
         }
+        
         self.exercises.append(exercise)
-        addWorkoutTableView.reloadData()
+        addWorkoutTableView.beginUpdates()
+        let indexPath = IndexPath(row: workoutBlocks.count, section: 1)
+        addWorkoutTableView.insertRows(at: [indexPath], with: .bottom)
+        addWorkoutTableView.endUpdates()
         toggleSaveButton()
     }
     
@@ -171,9 +183,9 @@ class AddWorkoutVC: UIViewController, AddWorkoutTableViewCellDelegate, ExerciseT
         cell.setExercise(exercises[row], row: row)
         cell.configureWorkoutBlock()
         // empty list of workout blocks if table view updated
-        if row == 0 {
-            workoutBlocks = []
-        }
+//        if row == 0 {
+//            workoutBlocks = []
+//        }
         workoutBlocks.append(cell.block!)
         return cell
     }
@@ -248,12 +260,21 @@ extension AddWorkoutVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            tableView.beginUpdates()
             context.delete(workoutBlocks[indexPath.row])
+            saveContext()
             workoutBlocks.remove(at: indexPath.row)
             exercises.remove(at: indexPath.row)
+            
+            tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .fade )
-            saveContext()
+            tableView.endUpdates()
+            
+            tableView.beginUpdates()
+            for rowNum in indexPath.row..<exercises.count {
+                let cell = addWorkoutTableView.cellForRow(at: IndexPath(row: rowNum, section: 1)) as! WorkoutBlockCell
+                cell.setRowNum(rowNum)
+                // update block as well
+            }
             tableView.endUpdates()
             toggleSaveButton()
         }
