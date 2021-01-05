@@ -162,6 +162,7 @@ extension DashboardVC: UITableViewDataSource {
         
         if (indexPath.section == 0) {
             if (indexPath.row == splitFRC?.sections?[0].numberOfObjects) {
+                addButton.setSection(indexPath.section)
                 return addButton
             }
             if let split = splitFRC?.object(at: indexPath) as? Split {
@@ -171,6 +172,7 @@ extension DashboardVC: UITableViewDataSource {
         }
         
         if (indexPath.row == workoutFRC?.sections?[0].numberOfObjects) {
+            addButton.setSection(indexPath.section)
             return addButton
         }
         let path = IndexPath(row: indexPath.row, section: 0)
@@ -192,7 +194,13 @@ extension DashboardVC: UITableViewDelegate {
 // MARK: - AddButtonCellDelegate
 
 extension DashboardVC: AddButtonCellDelegate {
-    func callSegueFromAddButton(myData dataobject: AnyObject) {
-        self.performSegue(withIdentifier: "addWorkout", sender:self )
+    func callSegueFromAddButton(from section: Int) {
+        if section == 0 {
+            performSegue(withIdentifier: "AddSplitSegue", sender:self )
+        }
+        
+        if section == 1 {
+            performSegue(withIdentifier: "AddWorkoutSegue", sender:self )
+        }
     }
 }

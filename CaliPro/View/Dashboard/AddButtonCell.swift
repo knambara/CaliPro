@@ -9,30 +9,30 @@
 import UIKit
 
 protocol AddButtonCellDelegate {
-    func callSegueFromAddButton(myData dataobject: AnyObject)
+    func callSegueFromAddButton(from section: Int)
 }
 
 class AddButtonCell: UITableViewCell {
 
     @IBOutlet weak var addButton: UIButton!
+    
     var delegate: AddButtonCellDelegate!
+    var section: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setSection(_ section: Int) {
+        self.section = section
     }
     
     @IBAction func addButtonPressed(_ sender: Any) {
-        print("addPressed")
-        if self.delegate != nil {
-            self.delegate.callSegueFromAddButton(myData: "add button pressed" as AnyObject)
-        }
+        guard let delegate = self.delegate else { return }
+        guard let section = self.section else { return }
+        
+        delegate.callSegueFromAddButton(from: section)
+        
     }
     
 }

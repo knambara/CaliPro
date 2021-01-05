@@ -37,6 +37,14 @@
 		D76D2B46257BF3220012C6A4 /* AddWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2B45257BF3220012C6A4 /* AddWorkoutVC.swift */; };
 		D76D2B48257E75660012C6A4 /* WorkoutIdentifierCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2B47257E75660012C6A4 /* WorkoutIdentifierCell.swift */; };
 		D76D2B4A257FD1C50012C6A4 /* AddExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76D2B49257FD1C40012C6A4 /* AddExerciseCell.swift */; };
+		D79B362C259291030098ABC0 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79B362B259291030098ABC0 /* Dashboard.storyboard */; };
+		D79B362E2592912D0098ABC0 /* Exercises.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79B362D2592912D0098ABC0 /* Exercises.storyboard */; };
+		D79B36302592D4F90098ABC0 /* AddSplit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D79B362F2592D4F90098ABC0 /* AddSplit.storyboard */; };
+		D79B394E259BB00E00E070F5 /* LengthPerWorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B394D259BB00E00E070F5 /* LengthPerWorkoutCell.swift */; };
+		D7A7C6592593DF81007B07A5 /* AddSplitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A7C6582593DF81007B07A5 /* AddSplitVC.swift */; };
+		D7A7C65C2593F24F007B07A5 /* SelectDaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A7C65B2593F24F007B07A5 /* SelectDaysCell.swift */; };
+		D7A7C65E2593F290007B07A5 /* SelectEquipmentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A7C65D2593F290007B07A5 /* SelectEquipmentsCell.swift */; };
+		D7E07FF1259BDC8F0071F8B1 /* Equipments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7E07FF0259BDC8F0071F8B1 /* Equipments.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +82,14 @@
 		D76D2B45257BF3220012C6A4 /* AddWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutVC.swift; sourceTree = "<group>"; };
 		D76D2B47257E75660012C6A4 /* WorkoutIdentifierCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutIdentifierCell.swift; sourceTree = "<group>"; };
 		D76D2B49257FD1C40012C6A4 /* AddExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseCell.swift; sourceTree = "<group>"; };
+		D79B362B259291030098ABC0 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		D79B362D2592912D0098ABC0 /* Exercises.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exercises.storyboard; sourceTree = "<group>"; };
+		D79B362F2592D4F90098ABC0 /* AddSplit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddSplit.storyboard; sourceTree = "<group>"; };
+		D79B394D259BB00E00E070F5 /* LengthPerWorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthPerWorkoutCell.swift; sourceTree = "<group>"; };
+		D7A7C6582593DF81007B07A5 /* AddSplitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSplitVC.swift; sourceTree = "<group>"; };
+		D7A7C65B2593F24F007B07A5 /* SelectDaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDaysCell.swift; sourceTree = "<group>"; };
+		D7A7C65D2593F290007B07A5 /* SelectEquipmentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEquipmentsCell.swift; sourceTree = "<group>"; };
+		D7E07FF0259BDC8F0071F8B1 /* Equipments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Equipments.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +184,7 @@
 		D76D2ABA2572A1870012C6A4 /* CaliPro */ = {
 			isa = PBXGroup;
 			children = (
+				D79B362A259290EE0098ABC0 /* Storyboards */,
 				D76B219D258C020F000B5CEC /* Extensions */,
 				D76D2ACF2572A6E00012C6A4 /* Model */,
 				D76D2AD02572A6E60012C6A4 /* View */,
@@ -199,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				D76B219C258BFA16000B5CEC /* Dashboard */,
+				D7A7C65A2593F007007B07A5 /* Add Split View */,
 				D734FD63258181B800F137DE /* Add Workout View */,
 				D76B219B258BFA05000B5CEC /* Exercises Table View */,
 				D76D2AC12572A1870012C6A4 /* Main.storyboard */,
@@ -212,8 +230,30 @@
 				D734FD5D257FFF2700F137DE /* ExercisesVC.swift */,
 				D76D2AD825754CE20012C6A4 /* DashboardVC.swift */,
 				D76D2B45257BF3220012C6A4 /* AddWorkoutVC.swift */,
+				D7A7C6582593DF81007B07A5 /* AddSplitVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		D79B362A259290EE0098ABC0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D79B362B259291030098ABC0 /* Dashboard.storyboard */,
+				D79B362D2592912D0098ABC0 /* Exercises.storyboard */,
+				D79B362F2592D4F90098ABC0 /* AddSplit.storyboard */,
+				D7E07FF0259BDC8F0071F8B1 /* Equipments.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D7A7C65A2593F007007B07A5 /* Add Split View */ = {
+			isa = PBXGroup;
+			children = (
+				D7A7C65B2593F24F007B07A5 /* SelectDaysCell.swift */,
+				D7A7C65D2593F290007B07A5 /* SelectEquipmentsCell.swift */,
+				D79B394D259BB00E00E070F5 /* LengthPerWorkoutCell.swift */,
+			);
+			path = "Add Split View";
 			sourceTree = "<group>";
 		};
 		F3767F94DC49F417BEBCDB1A /* Frameworks */ = {
@@ -284,13 +324,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D79B36302592D4F90098ABC0 /* AddSplit.storyboard in Resources */,
 				D76D2AC82572A18C0012C6A4 /* LaunchScreen.storyboard in Resources */,
 				D76D2AEB2576AF640012C6A4 /* AddButtonCell.xib in Resources */,
+				D7E07FF1259BDC8F0071F8B1 /* Equipments.storyboard in Resources */,
 				D76D2B44257A98B20012C6A4 /* exercises.csv in Resources */,
 				D76D2AC52572A18C0012C6A4 /* Assets.xcassets in Resources */,
+				D79B362E2592912D0098ABC0 /* Exercises.storyboard in Resources */,
 				D76D2B42257A82DE0012C6A4 /* preload_data.db in Resources */,
 				D76D2AC32572A1870012C6A4 /* Main.storyboard in Resources */,
 				D76D2AEF2577E2020012C6A4 /* WorkoutSplitCell.xib in Resources */,
+				D79B362C259291030098ABC0 /* Dashboard.storyboard in Resources */,
 				D76D2AE92576A9410012C6A4 /* WorkoutCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D76D2AD925754CE20012C6A4 /* DashboardVC.swift in Sources */,
+				D79B394E259BB00E00E070F5 /* LengthPerWorkoutCell.swift in Sources */,
 				D76D2B4A257FD1C50012C6A4 /* AddExerciseCell.swift in Sources */,
 				D76D2B46257BF3220012C6A4 /* AddWorkoutVC.swift in Sources */,
 				D734FD5E257FFF2700F137DE /* ExercisesVC.swift in Sources */,
@@ -352,12 +397,15 @@
 				D76D2AF825793AFD0012C6A4 /* DatabaseManager.swift in Sources */,
 				D76D2B1B257A72CD0012C6A4 /* DataModel.xcdatamodeld in Sources */,
 				D76B219F258C0220000B5CEC /* String+Shortcuts.swift in Sources */,
+				D7A7C65C2593F24F007B07A5 /* SelectDaysCell.swift in Sources */,
 				D76D2B48257E75660012C6A4 /* WorkoutIdentifierCell.swift in Sources */,
+				D7A7C6592593DF81007B07A5 /* AddSplitVC.swift in Sources */,
 				D76D2ABC2572A1870012C6A4 /* AppDelegate.swift in Sources */,
 				D734FD672583B89400F137DE /* WorkoutBlockCell.swift in Sources */,
 				D734FD60258007E200F137DE /* ExercisesTableViewCell.swift in Sources */,
 				D76D2ADF257578F40012C6A4 /* AddButtonCell.swift in Sources */,
 				D734FD6525818C8D00F137DE /* WorkoutNotesCell.swift in Sources */,
+				D7A7C65E2593F290007B07A5 /* SelectEquipmentsCell.swift in Sources */,
 				D76D2ABE2572A1870012C6A4 /* SceneDelegate.swift in Sources */,
 				D76D2ADC257557670012C6A4 /* WorkoutCell.swift in Sources */,
 				D76B21A1258C0B32000B5CEC /* AddWokoutTableViewCellDelegate.swift in Sources */,
